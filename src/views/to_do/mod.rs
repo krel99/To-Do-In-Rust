@@ -1,4 +1,5 @@
 mod create;
+mod delete;
 mod edit;
 mod get;
 
@@ -10,6 +11,7 @@ pub fn to_do_views_factory(app: &mut ServiceConfig) {
         scope("v1/item")
             .route("create/{title}", post().to(create::create))
             .route("get", get().to(get::get)) // define view and URL
-            .route("edit", post().to(edit::edit)),
+            .route("edit", post().to(edit::edit))
+            .route("delete", post().to(delete::delete)),
     );
 }
