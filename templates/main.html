@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trading Diary In Rust">
+    <title>Trading Diary</title>
+</head>
+
+<body>
+    <h1> Trading Diary</h1>
+    <input type="text" id="name" placeholder="Create an Item"> </input>
+    <button id="create-button" value="Send"> Create </button>
+</body>
+
+<script>
+    let createButton = document.getElementById('create-button');
+    createButton.addEventListener('click', postAlert);
+    function postAlert(){
+        let titleInput = document.getElementById('name');
+        alert(titleInput.value);
+        titleInput.value = null;
+    }
+</script>
+
+
+</html>
