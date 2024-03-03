@@ -1,10 +1,23 @@
+#[macro_use]
+extern crate diesel;
+extern crate dotenv;
+
+use crate::config::Config;
+use diesel::pg::PgConnection;
+use diesel::prelude::*;
+
+mod config;
+
+use actix_cors::Cors;
 use actix_service::Service;
 use actix_web::{App, HttpServer};
 
+mod database;
+mod models;
+mod schema;
+
 mod json_serialization;
 mod jwt;
-mod processes;
-mod state;
 mod to_do;
 mod views;
 

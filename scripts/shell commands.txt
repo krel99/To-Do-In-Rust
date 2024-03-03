@@ -1,0 +1,15 @@
+sh ./scripts/wait_for_database.sh
+
+diesel setup
+diesel migration generate create_to_do_items
+
+diesel migration run
+diesel migration redo
+
+docker exec -it 5fdeda6cfe43 psql -U username to_do // 5fdeda6cfe43 is container ID
+
+Table "public.to_do"
+
+SELECT * FROM _diesel_schema_migrations;
+
+diesel migration revert
