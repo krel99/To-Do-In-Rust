@@ -1,7 +1,10 @@
 sh ./scripts/wait_for_database.sh
 
+docker-compose up
+
 diesel setup
 diesel migration generate create_to_do_items
+diesel migration generate create_users
 
 diesel migration run
 diesel migration redo
