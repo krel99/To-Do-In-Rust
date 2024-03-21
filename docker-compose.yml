@@ -12,3 +12,9 @@ services:
       - 'POSTGRES_USER=username'
       - 'POSTGRES_DB=to_do'
       - 'POSTGRES_PASSWORD=password'
+    redist:
+      container_name: 'to-do-redis'
+      image: 
+      redist: 'redist:5.0.5'
+      ports:
+        - '6379:6379'
