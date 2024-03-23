@@ -1,6 +1,6 @@
 use serde::ser::{Serialize, SerializeStruct, Serializer};
 
-#[derive(Clone)]
+#[derive(Clone, Eq, Debug)]
 pub enum TaskStatus {
     DONE,
     PENDING,
@@ -31,5 +31,20 @@ impl Serialize for TaskStatus {
         let mut s = serializer.serialize_struct("TaskStatus", 1)?;
         s.serialize_field("status", &self.stringify())?;
         s.end()
+    }
+}
+
+impl PartialEq for TaskStatus {
+    fn eq(&self, other: &Self) -> bool {
+        match self {
+            TaskStatus::DONE => match other {
+                &TaskStatus::DONE => return true,
+                &TaskStatus::PENDING => false,
+            },
+            TaskStatus::PENDING => match other {
+                &TaskStatus::DONE => return false,
+                &TaskStatus::PENDING => true,
+            },
+        }
     }
 }
