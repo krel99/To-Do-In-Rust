@@ -10,13 +10,12 @@ do
 done
 
 echo "docker is now running"
+
 # docker-compose down
-
 # #!/bin/bash
-
+# sudo killall -9 -l 5432 ---- kills anything blocking the port, caution!
 # # cd .. THIS IS ONLY NEEDED IF NOT RUNNING FROM ROOT
 # docker-compose up -d
-
 # # Wait for PostgreSQL to be ready
 # echo "Waiting for postgres to be ready..."
 # until docker-compose exec -T postgres pg_isready -h localhost -p 5435 -U username > /dev/null 2>&1
@@ -24,6 +23,5 @@ echo "docker is now running"
 #   echo "Postgres is not ready yet. Retrying in 2 seconds..."
 #   sleep 2
 # done
-
 # echo "Postgres is now ready."
 # echo "Docker is now running."

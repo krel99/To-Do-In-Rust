@@ -8,6 +8,7 @@ pub struct Config {
 }
 
 impl Config {
+    // existing function reading from file
     #[cfg(not(test))]
     pub fn new() -> Config {
         let args: Vec<String> = env::args().collect();

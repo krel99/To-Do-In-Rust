@@ -1,7 +1,6 @@
 use crate::diesel;
 use diesel::prelude::*;
 
-use actix_web::HttpResponseBuilder;
 use actix_web::{web, HttpResponse, Responder};
 
 use crate::database::DB;

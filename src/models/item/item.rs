@@ -2,7 +2,6 @@ use super::super::user::user::User;
 use crate::schema::to_do;
 use chrono::NaiveDateTime;
 
-// made available by Associations
 #[derive(Queryable, Identifiable, Associations)]
 #[belongs_to(User)]
 #[table_name = "to_do"]
